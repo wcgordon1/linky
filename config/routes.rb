@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+  }
   get 'dashboard', to: "dashboard#index"
+  get 'appearance', to: "dashboard#appearance"
   root 'dashboard#index'
 
   #aollows us to use user_path(user) to get the URL for a user's profile page
@@ -10,3 +14,4 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 end
+
